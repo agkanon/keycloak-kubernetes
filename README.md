@@ -29,8 +29,8 @@ helm install -n hotel keycloak-db bitnami/postgresql-ha
 # deploy Keycloak cluster
 kubectl apply -n hotel -f keycloak.yaml
 # create HTTPS ingress for Keycloak
-openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout auth-tls.key -out auth-tls.crt -subj "/CN=auth.localtest.me/O=hotel"
-kubectl create secret -n hotel tls auth-tls-secret --key auth-tls.key --cert auth-tls.crt
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout auth-tls.key -out auth-tls.crt -subj "/CN=auth.localtest.me/O=keycloak"
+kubectl create secret -n keycloak tls auth-tls-secret --key auth-tls.key --cert auth-tls.crt
 kubectl apply -n hotel -f keycloak-ingress.yaml
 ```
 
