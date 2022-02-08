@@ -41,20 +41,18 @@ spec:
             - name: PROXY_ADDRESS_FORWARDING
               value: "true"
             - name: DB_ADDR
-              value: keycloak-db-postgresql-ha-pgpool
+              value: 103.219.147.10 
             - name: DB_DATABASE
-              value: postgres
+              value: ha_keycloak
             - name: DB_USER
-              value: postgres
+              value: incskandb
             - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-db-postgresql-ha-postgresql
-                  key: postgresql-password
-            - name: DB_SCHEMA
-              value: public
+              value: $5sdfrXd67&|g
+              
+            # - name: DB_SCHEMA
+            #   value: public
             - name: DB_VENDOR
-              value: POSTGRES
+              value: MARIADB
             - name: JGROUPS_DISCOVERY_PROTOCOL
               value: dns.DNS_PING
             - name: JGROUPS_DISCOVERY_PROPERTIES
